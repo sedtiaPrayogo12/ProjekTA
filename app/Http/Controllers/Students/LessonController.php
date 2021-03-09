@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Students;
 
-use App\Models\Tutor;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class TutorController extends Controller
+class LessonController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class TutorController extends Controller
      */
     public function index()
     {
-        //
+        return view('student.lesson.index');
     }
 
     /**
@@ -41,10 +41,10 @@ class TutorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Tutor  $tutor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Tutor $tutor)
+    public function show($id)
     {
         //
     }
@@ -52,10 +52,10 @@ class TutorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Tutor  $tutor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tutor $tutor)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +64,10 @@ class TutorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Tutor  $tutor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tutor $tutor)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +75,10 @@ class TutorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Tutor  $tutor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tutor $tutor)
+    public function destroy($id)
     {
         //
     }

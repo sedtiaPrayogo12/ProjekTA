@@ -26,4 +26,13 @@ Route::get('index', function () {
 //     return view('index');
 // })->name('index');
 
-Route::get('course', [CourseController::class, 'index'])->name('course');
+// Route::get('course', [CourseController::class, 'index'])->name('course');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' => 'role:student', 'prefix' => 'student', 'as' => 'student.'], function () {
+        Route::resource('lesson', \App\Http\Controllers\Students\LessonController::class);
+    });
+    Route::group(['middleware' => 'role:teacher', 'prefix' => 'teacher', 'as' => 'teacher.'], function () {
+        Route::resource('course', \App\Http\Controllers\Teacher\CourseController::class);
+    });
+});
