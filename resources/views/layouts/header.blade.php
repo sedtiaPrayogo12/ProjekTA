@@ -63,26 +63,39 @@
                         <i class="fas fa-home fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Home</span>
                     </a>
                 </li>
+
+                @if (auth()->user()->role_id == 1)
                 <li class="mr-6 my-2 md:my-0">
                     <a href="{{ route('student.lesson.index') }}" class="block py-1 md:py-3 pl-1 align-middle text-pink-600 no-underline hover:text-gray-900 border-b-2 border-white hover:border-pink-500">
                         <i class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Lesson</span>
                     </a>
                 </li>
+                @endif
+
+                @if (auth()->user()->role_id == 2)
                 <li class="mr-6 my-2 md:my-0">
                     <a href="{{ route('teacher.course.index') }}" class="block py-1 md:py-3 pl-1 align-middle text-purple-600 no-underline hover:text-gray-900 border-b-2 border-white hover:border-purple-500">
                         <i class="fa fa-envelope fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Course</span>
                     </a>
                 </li>
+                @endif
+
+                @if (auth()->user()->role_id == 2)
                 <li class="mr-6 my-2 md:my-0">
                     <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-green-600 no-underline hover:text-gray-900 border-b-2 border-white hover:border-green-500">
                         <i class="fas fa-chart-area fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Salary</span>
                     </a>
                 </li>
+                @endif
+
+                @if (auth()->user()->role_id == 1)
                 <li class="mr-6 my-2 md:my-0">
                     <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-red-600 no-underline hover:text-gray-900 border-b-2 border-white hover:border-red-500">
                         <i class="fa fa-wallet fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Payments</span>
                     </a>
                 </li>
+                @endif
+
             </ul>
 
             <div class="relative pull-right pl-4 pr-4 md:pr-0">

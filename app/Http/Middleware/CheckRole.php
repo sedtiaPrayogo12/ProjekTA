@@ -12,10 +12,18 @@ class CheckRole
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
+     * @param string role
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, string $role)
     {
+        if ($role == 'student' && auth()->user()->role_id != 1) {
+            abort(403);
+        }
+
+        if ($role == 'teacher' && auth()->user()->role_id != 2) {
+            abort(403);
+        }
         return $next($request);
     }
 }
